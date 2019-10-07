@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+
+// asynchro
 import { getData } from "../actions/index";
 export class Post extends Component {
  
@@ -23,6 +25,7 @@ const mapStateToProps=(state)=> {
     articles: state.remoteArticles.slice(0, 10)
   };
 }
+
 export default connect(
   mapStateToProps,
   { getData }

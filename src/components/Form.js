@@ -47,7 +47,8 @@ class ConnectedForm extends Component {
   }
 }
 
-// 
+//  synchronous
+
 const mapDispatchToProps = (dispatch)=> {
   return {
     addArticle: article => dispatch(addArticle(article))
