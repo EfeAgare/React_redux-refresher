@@ -1,8 +1,7 @@
 import { ADD_ARTICLE } from "../constants/action-types";
 const forbiddenWords = ["spam", "money"];
-export function forbiddenWordsMiddleware({ dispatch }) {
-  return function(next) {
-    return function(action) {
+export const forbiddenWordsMiddleware=(store)=> next => action => {
+ 
       // do your stuff
       if (action.type === ADD_ARTICLE) {
         
@@ -10,10 +9,10 @@ export function forbiddenWordsMiddleware({ dispatch }) {
           action.payload.title.includes(word)
         );
         if (foundWord.length) {
-          return dispatch({ type: "FOUND_BAD_WORD" });
+          return store.dispatch({ type: "FOUND_BAD_WORD" });
         }
       }
       return next(action);
-    };
-  };
+    
+  
 }
